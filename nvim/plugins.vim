@@ -45,6 +45,8 @@ Plug 'XadillaX/json-formatter.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Git code highlighting
 Plug 'airblade/vim-gitgutter'
+"Git Fugitive
+Plug 'tpope/vim-fugitive'
 "Text formatting
 Plug 'godlygeek/tabular'
 "Markdown preview

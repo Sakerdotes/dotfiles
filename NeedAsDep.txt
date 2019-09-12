@@ -1,0 +1,15 @@
+
+Thinks wich need to be Installed
+
+yarn 
+mononoki
+nvim
+git
+yay
+termite
+firefox
+zsh
+pip3 (python) extra/python-pip
+pip3 install --user pynvim
+ohh my zsh
+
