@@ -1,7 +1,7 @@
 # Meine Konfigurations Dateien
 Hier befindet sich meine Linux Configdatei Sammlung.  
-Mit Hilfe des CollectConfig scriptes cann der Aktuelle stand der Configurationen gesammelt werden:  
-Updaten: `./CollectConfig.sh `
+Mit Hilfe des Mortosave scriptes cann der Aktuelle stand der Configurationen gesammelt und verteilt werden:  
+Updaten: `./Mortosave.sh `
 
 ## Pfade
 `i3/ => ~/.i3/`  
