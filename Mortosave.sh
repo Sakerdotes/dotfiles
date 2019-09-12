@@ -9,26 +9,30 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 
 collect_config() {
 	echo "collect i3 conf"
-		cp -r ~/.i3/config $SCRIPTPATH/i3/config  
-		echo "collect termite conf"
-		cp -r ~/.config/termite $SCRIPTPATH/  
-		echo "collect nvim conf"
-		cp -r ~/.config/nvim $SCRIPTPATH/  
-		echo "collect comption conf"
-		cp -r ~/.config/compton.conf $SCRIPTPATH/compton/compton.conf  
-		echo "Finished collecting the whole config!"
+	cp -r ~/.i3/config $SCRIPTPATH/i3/config  
+	echo "collect zshrc"
+	cp -r ~/.zshrc $SCRIPTPATH/zsh/zshrc
+	echo "collect termite conf"
+	cp -r ~/.config/termite $SCRIPTPATH/  
+	echo "collect nvim conf"
+	cp -r ~/.config/nvim $SCRIPTPATH/  
+	echo "collect comption conf"
+	cp -r ~/.config/compton.conf $SCRIPTPATH/compton/compton.conf  
+	echo "Finished collecting the whole config!"
 }
 
 apply_config() {
 	echo "apply i3 conf"
-		cp -r $SCRIPTPATH/i3/config ~/.i3/config
-		echo "apply termite conf"
-		cp -r $SCRIPTPATH/termite ~/.config/
-		echo "apply nvim conf"
-		cp -r $SCRIPTPATH/nvim ~/.config/
-		echo "apply comption conf"
-		cp -r $SCRIPTPATH/compton/compton.conf ~/.config/compton.conf
-		echo "Finished applying the whole config!"
+	cp -r $SCRIPTPATH/i3/config ~/.i3/config
+	echo "apply zshrc "
+	cp -r $SCRIPTPATH/zsh/zshrc ~/.zshrc
+	echo "apply termite conf"
+	cp -r $SCRIPTPATH/termite ~/.config/
+	echo "apply nvim conf"
+	cp -r $SCRIPTPATH/nvim ~/.config/
+	echo "apply comption conf"
+	cp -r $SCRIPTPATH/compton/compton.conf ~/.config/compton.conf
+	echo "Finished applying the whole config!"
 }
 
 
@@ -41,13 +45,13 @@ read option
 echo ""
 
 if [ "$option" = "u" ]; then
-echo "Start collecting configs"
-collect_config
+	echo "Start collecting configs"
+	collect_config
 elif [ "$option" = "a" ]; then
-echo "Start applying configs"
-apply_config
+	echo "Start applying configs"
+	apply_config
 else
-echo "Scheesh try again ;-)"
+	echo "Scheesh try again ;-)"
 fi
 
 
