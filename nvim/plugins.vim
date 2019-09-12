@@ -45,6 +45,10 @@ Plug 'XadillaX/json-formatter.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Git code highlighting
 Plug 'airblade/vim-gitgutter'
+"Markdown
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 "MatchTag
 Plug 'gregsexton/MatchTag'
 " post install (yarn install | npm install) then load plugin only for editing supported files
