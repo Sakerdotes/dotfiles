@@ -5,8 +5,8 @@ source ~/.config/nvim/plugins.vim
 set termguicolors
 colorscheme monokai_pro
 
-" Change number of spaces that a <Tab> counts for during editing ops
-set tabstop=4 shiftwidth=4
+"Change number of spaces that a <Tab> counts for during editing ops
+set tabstop=4 shiftwidth=4 
 
 " Disable default Line
 set noshowmode
@@ -24,29 +24,12 @@ set listchars=tab:\│\ ,trail:-,extends:>,precedes:<,nbsp:+
 " fasten updatetime
 set updatetime=100
 
-" go specific configurations
+source ~/.config/nvim/plugin_config/VimGo.vim
+source ~/.config/nvim/plugin_config/NerdTree.vim
+source ~/.config/nvim/plugin_config/Coc.vim
+source ~/.config/nvim/plugin_config/GitGutter.vim
+source ~/.config/nvim/plugin_config/Denite.vim
+source ~/.config/nvim/plugin_config/MarkdownPreview.vim
 
-" auto import dependencies
-let g:go_fmt_command = "goimports"
-" highlight same words
-let g:go_auto_sameids = 1
-" syntax default highlighting
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-
-let g:go_def_mode = "gopls"
-
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0
-
-
-source ~/.config/nvim/plugins_config.vim
 
 

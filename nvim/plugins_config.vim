@@ -169,14 +169,8 @@ endtry
 
 " === Markdown === "
 
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> trigger autocompletion
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
 " Markdown Preview
-let g:mkdp_auto_close = 0
+let g:mkdp_auto_close = 1
 nnoremap <M-m> :MarkdownPreview<CR>
 
 

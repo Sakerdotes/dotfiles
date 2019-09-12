@@ -4,6 +4,7 @@
 " ============================================================================ "
 
 " === Denite shorcuts === "
+
 "   ;         - Browser currently open buffers
 "   <leader>t - Browse list of files in current directory
 "   <leader>g - Search current directory for occurences of given term and close window if no results
@@ -54,16 +55,15 @@ function! s:denite_my_settings() abort
   \ denite#do_map('open_filter_buffer')
 endfunction
 
-"=== END DENITE === "
+
+"=== CUSTOM=== "
 
 
 "use ,js to format json
 nnoremap <leader>js :%!python -m json.tool<cr>
-
 "use ,cd to set workingdir to current dir
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
-nnoremap <leader><Space> <Esc>/<++><Enter>"_c4l
 
 "=== HTML KEYBINDINGS ==="
 autocmd FileType html inoremap ;p <p></p><Enter><++><Esc>ki
@@ -73,7 +73,3 @@ autocmd FileType go inoremap ;struct type  struct {<Enter><++><Enter>}<Esc>kkf<S
 autocmd FileType go inoremap ;err if err != nil {<Enter>return err<Enter>}<Enter>
 autocmd FileType go inoremap ;func func  (){<Enter><++><Enter>}<Esc>kkf<Space>a
 
-"extract to variable
-"autocmd FileType go vnoremap <leader>m xi<++><Esc>Os<Space>:=<Space><Esc>p0dfsi
-"autocmd FileType go nnoremap <leader>m 0vf<Space>hy<Esc>,<Space><Esc>p
-"autocmd FileType go nnoremap ,l :!make run<Enter>

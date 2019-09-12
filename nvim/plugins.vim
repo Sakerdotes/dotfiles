@@ -45,9 +45,9 @@ Plug 'XadillaX/json-formatter.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Git code highlighting
 Plug 'airblade/vim-gitgutter'
-"Markdown
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Text formatting
+Plug 'godlygeek/tabular'
+"Markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 "MatchTag
 Plug 'gregsexton/MatchTag'
