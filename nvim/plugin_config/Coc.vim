@@ -14,23 +14,6 @@ inoremap <silent><expr> <TAB>
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" if hidden is not set, TextEdit might fail.
-set hidden
-" Better display for messages
-set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-"set updatetime=300
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
-" always show hybrid line numbers
-"set nu rnu
-"Send to system clipboard
-set clipboard+=unnamed
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-
 inoremap <silent><expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ <SID>check_back_space() ? "\<TAB>" :

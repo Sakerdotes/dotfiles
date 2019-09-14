@@ -17,7 +17,7 @@ collect_config() {
 	echo "collect nvim conf"
 	cp -r ~/.config/nvim $SCRIPTPATH/  
 	echo "collect comption conf"
-	cp -r ~/.config/compton.conf $SCRIPTPATH/compton/compton.conf  
+	cp -r ~/.config/compton.conf $SCRIPTPATH/compton/compton.conf
 	echo "Finished collecting the whole config!"
 }
 
