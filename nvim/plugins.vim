@@ -35,6 +35,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'benizi/vim-automkdir'
 "COC
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+"Vue highlighting
+Plug 'posva/vim-vue'
 "Denite
 Plug 'Shougo/denite.nvim'
 "Vim autosave

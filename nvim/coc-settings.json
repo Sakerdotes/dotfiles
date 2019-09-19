@@ -5,5 +5,7 @@
 			"rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
 			"filetypes": ["go"]
 		}
-	}
+	},
+	"vetur.format.options.tabSize": 4,
+	"vetur.format.options.useTabs": true
 }

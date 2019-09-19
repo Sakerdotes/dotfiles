@@ -43,6 +43,9 @@ set listchars=tab:>.,trail:·,extends:>,precedes:<,nbsp:_
 " fasten updatetime
 set updatetime=100
 
+
+let g:vue_pre_processors = 'detect_on_enter'
+
 " === VimGo ===
 
 " auto import dependencies
