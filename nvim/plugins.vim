@@ -18,7 +18,11 @@ if !filereadable(plugpath)
 	endif
 endif
 
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-vetur', 'coc-css', 'coc-json', 'coc-html']
+
 call plug#begin('~/.vim/plugged')
+" SQL
+Plug 'tpope/vim-dadbod'
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
 "Go-Plugin
@@ -27,26 +31,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ryanoasis/vim-devicons'
 " File Icon colors
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Vue-Plugin
-Plug 'posva/vim-vue'
-"vim-Javascript
-Plug 'pangloss/vim-javascript'
 "Auto Mkdir
 Plug 'benizi/vim-automkdir'
 "COC
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-"COC vue plugin
-Plug 'neoclide/coc-vetur'
-"Coc json plugin
-Plug 'neoclide/coc-json'
-"Coc Typescript plugin
-Plug 'neoclide/coc-tsserver'
-"Coc Eslint plugn
-Plug 'neoclide/coc-eslint'
-"Coc prettier plugin
-"Plug 'neoclide/coc-prettier'
-"Coc css plugin
-Plug 'neoclide/coc-css'
 "Denite
 Plug 'Shougo/denite.nvim'
 "Vim autosave
