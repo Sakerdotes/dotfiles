@@ -4,7 +4,7 @@
 [options]
 
 allow_bold = true
-audible_bell = true
+audible_bell = false
 browser = firefox
 clickable_url = true
 cursor_blink = system
@@ -21,7 +21,7 @@ scroll_on_keystroke = true
 scrollback_lines = 15000
 size_hints = false
 search_wrap = true
-urgent_on_bell = true
+urgent_on_bell = false
 highlight = #30343e
 
 [colors]

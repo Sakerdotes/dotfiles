@@ -43,7 +43,7 @@ set listchars=tab:>.,trail:·,extends:>,precedes:<,nbsp:_
 " fasten updatetime
 set updatetime=100
 
-
+"vim vue, only load when open vue file
 let g:vue_pre_processors = 'detect_on_enter'
 
 " === VimGo ===
@@ -108,8 +108,13 @@ let g:mkdp_auto_close = 1
 " ============================================================================ "
 
 
-"use ,js to format json
-nnoremap <leader>js :%!python -m json.tool<cr>
+" Shortcutting split navigation, saving a keypress:
+	map <C-h> <C-w>h
+	map <C-j> <C-w>j
+	map <C-k> <C-w>k
+	map <C-l> <C-w>l
+
+
 "use ,cd to set workingdir to current dir
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
