@@ -13,7 +13,7 @@ pip3 (python) extra/python-pip
 pip3 install --user pynvim
 ohh my zsh
 ripgrep
-
+powerline/font
 
 Info
 Damit prettier läuft muss in ~/.vim/plugged/vim-prettier yarn install ausgeführt werden........

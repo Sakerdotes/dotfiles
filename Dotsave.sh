@@ -36,15 +36,15 @@ apply_config() {
 }
 
 
-echo "Mortosave: The best config saving tool EVER!"
+echo "Dotsave: The best config saving tool EVER!"
 echo "Choose Option:"
-echo "  Update(u): Will collect all needed config files from filesystem."
+echo "  Collect(c): Will collect all needed config files from filesystem."
 echo "  Apply(a): Will apply all config files in from this collection to the right places."
 
 read option
 echo ""
 
-if [ "$option" = "u" ]; then
+if [ "$option" = "c" ]; then
 	echo "Start collecting configs"
 	collect_config
 elif [ "$option" = "a" ]; then

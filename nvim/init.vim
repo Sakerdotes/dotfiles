@@ -16,6 +16,10 @@ set tabstop=4 shiftwidth=4
 " Disable default Line
 set noshowmode
 
+set splitbelow              " Open hsplit below current window
+set scrolloff=3             " Display at least 3 lines above/below cursor
+set sidescrolloff=3         " Display at least 3 columns right/left of cursor
+
 " Hides buffers instead of closing them
 set hidden
 
@@ -43,8 +47,37 @@ set listchars=tab:>.,trail:·,extends:>,precedes:<,nbsp:_
 " fasten updatetime
 set updatetime=100
 
+let g:lightline = {}
+let g:lightline.colorscheme = 'onedark'
+let g:lightline.active = {}
+let g:lightline.active.left = [[ 'mode', 'paste' ],[ 'cocstatus', 'readonly', 'modified' ]] 
+let g:lightline.component_function = {}
+let g:lightline.component_function.gitbranch = 'fugitive#head'
+let g:lightline.tabline = {}
+let g:lightline.tabline.left = [['buffers']]
+let g:lightline.tabline.right = [['gitbranch']]
+let g:lightline.component_expand = {}
+let g:lightline.component_expand.buffers = 'lightline#bufferline#buffers'
+let g:lightline.component_expand.cocstatus = 'cocstatus'
+let g:lightline.component_type = {}
+let g:lightline.component_type.buffers = 'tabsel'
+let g:lightline.separator = {}
+let g:lightline.separator.left = ''
+let g:lightline.separator.right = '' 
+let g:lightline.subseparator = {}
+let g:lightline.subseparator.left = ''
+let g:lightline.subseparator.right = ''
+
+
+let g:lightline#bufferline#shorten_path     = 1
+let g:lightline#bufferline#min_buffer_count = 1
+let g:lightline#bufferline#unnamed          = '[No Name]'
+
+au User CocDiagnosticChange call lightline#update()
+
 "vim vue, only load when open vue file
 let g:vue_pre_processors = 'detect_on_enter'
+
 
 " === VimGo ===
 
@@ -59,6 +92,10 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_variable_declaration = 1
+let g:go_highlight_variable_assignments = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
@@ -107,13 +144,15 @@ let g:mkdp_auto_close = 1
 " ===                             KEYBINDINGS                              === "
 " ============================================================================ "
 
+" Switches Buffers
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
 
 " Shortcutting split navigation, saving a keypress:
-	map <C-h> <C-w>h
-	map <C-j> <C-w>j
-	map <C-k> <C-w>k
-	map <C-l> <C-w>l
-
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 "use ,cd to set workingdir to current dir
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>

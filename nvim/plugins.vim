@@ -22,7 +22,8 @@ let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-vetur', 'coc-c
 
 call plug#begin('~/.vim/plugged')
 " SQL
-Plug 'tpope/vim-dadbod'
+"Plug 'tpope/vim-dadbod'
+
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
 "Go-Plugin
@@ -31,20 +32,24 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ryanoasis/vim-devicons'
 " File Icon colors
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Auto Mkdir
-Plug 'benizi/vim-automkdir'
 "COC
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+"Bracket edit 
+Plug 'tpope/vim-surround'
+"auto close brackets
+Plug 'Raimondi/delimitMate'
 "Vue highlighting
 Plug 'posva/vim-vue'
+"comment lines
+Plug 'tomtom/tcomment_vim'
 "Denite
 Plug 'Shougo/denite.nvim'
-"Vim autosave
-Plug 'vim-scripts/vim-auto-save'
 "Nerdtree
 Plug 'scrooloose/nerdtree'
 "lightline
 Plug 'itchyny/lightline.vim'
+" lightline color theme
+Plug 'novadev94/lightline-onedark'
 "json formatter
 Plug 'XadillaX/json-formatter.vim'
 "Git Nerdtree
@@ -56,11 +61,15 @@ Plug 'tpope/vim-fugitive'
 "Text formatting
 Plug 'godlygeek/tabular'
 "Statusline plugin
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 "Markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 "MatchTag
 Plug 'gregsexton/MatchTag'
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 call plug#end()
