@@ -35,6 +35,7 @@ apply_config() {
 	echo "Finished applying the whole config!"
 }
 
+# TODO add font to apply
 
 echo "Dotsave: The best config saving tool EVER!"
 echo "Choose Option:"

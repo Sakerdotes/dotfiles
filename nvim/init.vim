@@ -10,6 +10,8 @@ set termguicolors
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 
+set langmap=ö[,ä],Ö{,Ä} 
+
 "Change number of spaces that a <Tab> counts for during editing ops
 set tabstop=4 shiftwidth=4
 
@@ -17,6 +19,7 @@ set tabstop=4 shiftwidth=4
 set noshowmode
 
 set splitbelow              " Open hsplit below current window
+set splitright              " Open vsplit to the right 
 set scrolloff=3             " Display at least 3 lines above/below cursor
 set sidescrolloff=3         " Display at least 3 columns right/left of cursor
 
@@ -46,6 +49,11 @@ set listchars=tab:>.,trail:·,extends:>,precedes:<,nbsp:_
 
 " fasten updatetime
 set updatetime=100
+
+"let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
+"let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
 
 let g:lightline = {}
 let g:lightline.colorscheme = 'onedark'
@@ -116,6 +124,9 @@ let g:prettier#config#print_width = 80
 
 let g:NERDTreeShowHidden = 1 " Show hidden files/directories
 let g:NERDTreeMinimalUI = 1 " Remove bookmarks and help text from NERDTree
+let g:NERDTreeHijackNetrw= 0
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 
 " Custom icons for expandable/expanded directories
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -123,8 +134,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Hide certain files and directories from NERDTree
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]','\.idea$[[dir]]', '\.sass-cache$']
-let g:NERDTreeQuitOnOpen = 1
-
+let g:NERDTreeQuitOnOpen = 3
 " === GitGutter === "
 
 let g:gitgutter_enabled = 1
@@ -143,6 +153,18 @@ let g:mkdp_auto_close = 1
 " ============================================================================ "
 " ===                             KEYBINDINGS                              === "
 " ============================================================================ "
+
+
+"disable arrow keys for learning purposes
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+
 
 " Switches Buffers
 :nnoremap <Tab> :bnext<CR>
@@ -316,12 +338,11 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "autocmd bufenter * if (len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 0 && winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
+"Open Nerdtree as only window on open folder
 " Open NERDTree automatically if vim starts up opening a directory
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'bd' | exe 'NERDTree' argv()[0] |  exe 'cd '.argv()[0] | endif
 
-" === Coc.nvim === "
 
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif

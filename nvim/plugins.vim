@@ -1,4 +1,5 @@
 " ============================================================================ "
+"
 " ===                               Plugins                                === "
 " ============================================================================ "
 
@@ -21,15 +22,9 @@ endif
 let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-vetur', 'coc-css', 'coc-json', 'coc-html']
 
 call plug#begin('~/.vim/plugged')
-" SQL
-"Plug 'tpope/vim-dadbod'
-
-" Gruvbox theme
-Plug 'morhetz/gruvbox'
-"Go-Plugin
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" File Icons
-Plug 'ryanoasis/vim-devicons'
+Plug 'morhetz/gruvbox' "Color Scheme | dark theme
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Language support for GOLANG
+Plug 'ryanoasis/vim-devicons' "Icons for filetypes
 " File Icon colors
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "COC
@@ -44,25 +39,23 @@ Plug 'posva/vim-vue'
 Plug 'tomtom/tcomment_vim'
 "Denite
 Plug 'Shougo/denite.nvim'
-"Nerdtree
+" "Nerdtree
 Plug 'scrooloose/nerdtree'
+" "Git Nerdtree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 "lightline
 Plug 'itchyny/lightline.vim'
 " lightline color theme
 Plug 'novadev94/lightline-onedark'
 "json formatter
 Plug 'XadillaX/json-formatter.vim'
-"Git Nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'
-"Git code highlighting
-Plug 'airblade/vim-gitgutter'
+"Git code highlighting Plug 'airblade/vim-gitgutter'
 "Git Fugitive
 Plug 'tpope/vim-fugitive'
 "Text formatting
 Plug 'godlygeek/tabular'
 "Statusline plugin
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 "Markdown preview
