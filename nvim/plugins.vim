@@ -24,9 +24,6 @@ let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-vetur', 'coc-c
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox' "Color Scheme | dark theme
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "Language support for GOLANG
-Plug 'ryanoasis/vim-devicons' "Icons for filetypes
-" File Icon colors
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "COC
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 "Bracket edit 
@@ -64,5 +61,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'gregsexton/MatchTag'
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+"Devicons need to be loaded after the nerdtree git plugin to prevent alignment errors!
+Plug 'ryanoasis/vim-devicons' "Icons for filetypes
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "Colorize the nerdtree vim devicons
 
 call plug#end()

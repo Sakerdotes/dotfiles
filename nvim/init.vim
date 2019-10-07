@@ -7,7 +7,7 @@ source ~/.config/nvim/plugins.vim
 
 "set color theme
 set termguicolors
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 
 set langmap=ö[,ä],Ö{,Ä} 
@@ -66,7 +66,7 @@ let g:lightline.tabline.left = [['buffers']]
 let g:lightline.tabline.right = [['gitbranch']]
 let g:lightline.component_expand = {}
 let g:lightline.component_expand.buffers = 'lightline#bufferline#buffers'
-let g:lightline.component_expand.cocstatus = 'cocstatus'
+let g:lightline.component_expand.cocstatus = 'cocstatuss'
 let g:lightline.component_type = {}
 let g:lightline.component_type.buffers = 'tabsel'
 let g:lightline.separator = {}
@@ -135,16 +135,14 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " Hide certain files and directories from NERDTree
 let g:NERDTreeIgnore = ['^\.DS_Store$', '^tags$', '\.git$[[dir]]','\.idea$[[dir]]', '\.sass-cache$']
 let g:NERDTreeQuitOnOpen = 3
+let g:NERDTreeShowIgnoredStatus = 1
+highlight! link NERDTreeFlags NERDTreeDir
 " === GitGutter === "
 
 let g:gitgutter_enabled = 1
 let g:gitgutter_signs = 1
 let g:gitgutter_highlight_lines = 0
 let g:gitgutter_highlight_linenrs = 0
-
-highlight GitGutterAdd guifg=DarkGreen  ctermfg=DarkGreen
-highlight GitGutterChange guifg=DarkYellow ctermfg=DarkYellow 
-highlight GitGutterDelete guifg=Red ctermfg=Red
 
 " Markdown Preview
 let g:mkdp_auto_close = 1
