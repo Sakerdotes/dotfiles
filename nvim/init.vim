@@ -63,7 +63,7 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 
 set langmap=ö[,ä],Ö{,Ä}      "  Remap keys in normal mode for better handling
 set tabstop=4                "  Number of spaces a tab counts for
-set shiftwidth=5             "  Number of spaces to use for each step of (auto)indent
+set shiftwidth=4             "  Number of spaces to use for each step of (auto)indent
 set noshowmode               "  Disable default Line
 set splitbelow               "  Open hsplit below current window
 set splitright               "  Open vsplit to the right
