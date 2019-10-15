@@ -18,7 +18,7 @@ if !filereadable(plugpath)
 	endif
 endif
 
-let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-vetur', 'coc-css', 'coc-json', 'coc-html']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-vetur', 'coc-css', 'coc-json', 'coc-html', 'coc-phpls']
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox' " Color Scheme | dark theme
@@ -41,6 +41,7 @@ Plug 'mengelbrecht/lightline-bufferline' " Bufferline plugin for lightline
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }} "Markdown preview
 Plug 'gregsexton/MatchTag' " Automaticly close html tags
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Code syntax styling
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Devicons need to be loaded after the nerdtree git plugin to prevent alignment errors!
 Plug 'ryanoasis/vim-devicons' "Icons for filetypes
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "Colorize the nerdtree vim devicons
@@ -391,3 +392,48 @@ endtry
 
 
 
+function! s:init_search_buffer() abort
+	execute 'resize' float2nr(0.4 * &lines)
+	execute 'tnoremap <silent> <buffer> <C-s> <C-\><C-n>:<C-u>call <SID>toggle_fullscreen_search()<CR>'
+	execute 'tnoremap <silent> <buffer> <C-a> <Esc><C-\><C-n>:<C-u>call <SID>set_filter_search()<CR>'
+endfunction
+
+function! s:toggle_fullscreen_search() abort
+	let l:defaultsize = float2nr(0.4 * &lines)
+	if l:defaultsize == winheight('%')
+		tab split
+	else
+		tabclose
+		resize 1
+		execute 'resize' float2nr(0.4 * &lines)
+	endif
+	normal! i
+endfunction
+
+function! s:set_filter_search() abort
+	call inputsave()
+	let name = input('Enter pattern: ')
+	call inputrestore()
+	call OpenPatternSearch(name)
+endfunction
+
+function! OpenSearch() abort
+	call fzf#run(fzf#wrap('File-Search',{
+				\ 'source':  "find -path '*/\.*' -prune -o -type f -print 2> /dev/null",
+				\ 'options':  '--reverse --preview "highlight -O ansi -l {} 2> /dev/null "',
+				\ "window":  "bot split new",
+				\ }))
+	call s:init_search_buffer()
+endfunction
+
+
+function! OpenPatternSearch(pattern) abort
+	call fzf#run(fzf#wrap('File-Pattern-Search',{
+				\ 'source':  'rg --files-with-matches --no-messages "'.a:pattern.'"',
+				\ 'options':  '--reverse --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors \"match:bg:yellow\" --ignore-case --pretty --context 10 \"$1\" | rg --ignore-case --pretty --context 10 \"$1\" {} "',
+				\ "window":  "bot split new",
+				\ }))
+	call s:init_search_buffer()
+endfunction
+
+nnoremap <silent> <Leader>s :call OpenSearch()<CR>
