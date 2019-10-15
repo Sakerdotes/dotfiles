@@ -35,13 +35,30 @@ apply_config() {
 	echo "Finished applying the whole config!"
 }
 
-# TODO add font to apply
-# TODO add git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions | git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+install_basics() {
+	# Install needed packages
+	pacman -S yarn neovim git yay termite firefox zsh ripgrep python 
+	# Install ohh-my-zsh with plugins
+	git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+	git clone https://github.com/zsh-users/zsh-autosuggestions \
+		$ZSH_CUSTOM/plugins/zsh-autosuggestions
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+		$ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+	chsh -s $(which zsh)
+	# Install font
+	mkdir -p /usr/share/fonts/tsf
+	mv font/Roboto.ttf /usr/share/fonts/tsf/Roboto.ttf
+}
+
 
 echo "Dotsave: The best config saving tool EVER!"
 echo "Choose Option:"
+echo "  Install Basics(i): Will install all needed basic packages for configs to work."
 echo "  Collect(c): Will collect all needed config files from filesystem."
 echo "  Apply(a): Will apply all config files in from this collection to the right places."
+
 
 read option
 echo ""
@@ -52,6 +69,9 @@ if [ "$option" = "c" ]; then
 elif [ "$option" = "a" ]; then
 	echo "Start applying configs"
 	apply_config
+elif [ "$option" = "i" ]; then
+	echo "Start installing basics"
+	install_basics
 else
 	echo "Scheesh try again ;-)"
 fi

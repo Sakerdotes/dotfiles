@@ -1,19 +1,7 @@
 
-Thinks wich need to be Installed
+Thinks for consideration
 
-yarn 
-mononoki
-nvim
-git
-yay
-termite
-firefox
-zsh
-pip3 (python) extra/python-pip
 pip3 install --user pynvim
-ohh my zsh
-ripgrep
-powerline/font
 
 Info
 Damit prettier läuft muss in ~/.vim/plugged/vim-prettier yarn install ausgeführt werden........
