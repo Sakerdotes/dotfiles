@@ -125,7 +125,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
 let g:go_fmt_command = "goimports" " Auto import dependencies
-let g:go_auto_sameids = 1          " highlight same words
+let g:go_auto_sameids = 0          " highlight same words
 let g:go_def_mode = "gopls"        "change definition tool to gopls
 
 " disable vim-go :GoDef short cut (gd)
@@ -320,7 +320,14 @@ endfunction
 " ===                              COMMANDS                                === "
 " ============================================================================ "
 
-
+" Return to the same line when you reopen a file.
+augroup line_return
+	autocmd!
+	autocmd BufReadPost *
+		\ if line("'\"") > 0 && line("'\"") <= line("$") |
+		\     execute 'normal! g`"zvzz' |
+		\ endif
+augroup END
 
 "=== GO LIVETEMPLATES ==="
 autocmd FileType go inoremap ;struct type  struct {<Enter><++><Enter>}<Esc>kkf<Space>a
