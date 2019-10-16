@@ -430,7 +430,7 @@ endfunction
 function! OpenPatternSearch(pattern) abort
 	call fzf#run(fzf#wrap('File-Pattern-Search',{
 				\ 'source':  'rg --files-with-matches --no-messages "'.a:pattern.'"',
-				\ 'options':  '--reverse --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors ''match:bg:yellow'' --ignore-case --pretty --context 10 ''$1'' | rg --ignore-case --pretty --context 10 ''$1'' {}"',
+				\ 'options':  '--reverse --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors ''match:bg:yellow'' --ignore-case --pretty --context 10 '''.a:pattern.''' | rg --ignore-case --pretty --context 10 '''.a:pattern.''' {}"',
 				\ "window":  "bot split new",
 				\ }))
 	call s:init_search_buffer()
